@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Biy daalt 2</title>
+</head>
+<body>
+<div id="header" >
+    © Corporate Finance Institute®. All rights reserved
+          Effective Annual Interest Rate
+</div>
+<br>
+<div id="main">
+Deposit( US Dollars): <input type="text" id="deposit">
+<button onclick="calculate()">Calculate</button>
+</div>
+<TABLE id="table" bordercolor="white">
+	<tr>
+		<th>Deposit interes Rate</th>
+        <th>$10,000.00 12%</th> 
+        <th>(compounded monthly)</th>
+    </tr>
+	<tr id="theme">
+		<td>Month</td>
+		<td>Beginning Balance</td>
+		<td>Interest Earned</td>
+		<td>Ending Balance</td>
+	</tr></TABLE>
+<TABLE id="table2" bordercolor="white" border="1">
+	
+    
+   
+  
+</TABLE>
+<script type="text/javascript">
+function calculate(){
+	var a = 1;
+	var b = document.getElementById("deposit").value;
+	var c = b/100*1;
+	var d = b*1 + c;
+	var e = 10509.070000000002;
+
+while(a<13){
+	document.getElementById("table2").innerHTML = document.getElementById("table2").innerHTML + (a + "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" + b + "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" + c + "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" + d + "<br>");
+	a++;
+	var c = b/100*1;
+	var d = b*1 + c;
+	b = d;
+    d = d + c;
+    d = parseFloat(d.toFixed(3));
+    c = parseFloat(c.toFixed(3));
+    b = parseFloat(b.toFixed(3));
+}
+
+}
+
+</script>
+<table id="foot" style="background-color: orange; width: 700px;">
+	<tr>
+    <th colspan="3">
+      <pre>Effective Annual Interest                        12.69</pre>
+    </th>
+</tr>
+</table>
+
+
+
+</body>
+</html>
+
+<style type="text/css" media="screen">
+	#btext{
+		padding-left: 100px;
+	}
+	#header{
+		position: static;
+		color: white;
+		border-style: solid;
+        border-color: #2C3095;
+        background-color: #2C3095;
+        
+        width: 700px;
+	}
+	#btext{
+		font-weight: bold;
+	}
+	#main{
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+	#table, #table2{
+		padding-left: 100px;
+		width:700px;
+	}
+	#theme{
+		color: white;
+        background-color: #2C3095;
+	}
+	
+</style>
