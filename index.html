@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: row;
+        }
+        .wrapper{
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <fieldset>
+            1st Number: <input type="number" id="val1"> <br>
+            2st Number: <input type="number" id="val2"><br>
+            <button onclick="res(1)">Mutltiple</button><button onclick="res(2)">Divide</button><br>
+            <br>
+            The Result is: <br>
+            <span id="res"></span>
+        </fieldset>
+    </div>
+    <div class="wrapper">
+        <fieldset>
+            <h1>My shopping list</h1>
+            Enter a new item: <input type="text" id="item"> <button onclick="addItem()">Add</button>
+            <br>
+            <ul id="list">
+            </ul>
+        </fieldset>
+    </div>
+    <script>
+        function res(i){
+            if(i === 1){
+                document.getElementById("res").innerHTML = document.getElementById("val1").value * document.getElementById("val2").value
+            }
+            else{
+                document.getElementById("res").innerHTML = document.getElementById("val1").value / document.getElementById("val2").value
+            }
+        }
+        function remove(elm){
+            elm.remove();
+        }
+        class Item{
+            name;
+            constructor(name){
+                this.name = name
+            }
+            render(){
+                return '<li>' + this.name + '&#9;<button onclick="remove(this.parentNode)">remove</button></li>'
+            }
+        }
+        function addItem(){
+            let newItem = new Item(document.getElementById("item").value);
+            document.getElementById("item").value = ''
+            document.getElementById("list").innerHTML += newItem.render();
+        }
+    </script>
+</body>
+</html>
